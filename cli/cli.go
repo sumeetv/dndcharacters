@@ -7,11 +7,13 @@ import (
 	"strings"
 
 	"github.com/sumeetv/dndcharacters/classes"
+	"github.com/sumeetv/dndcharacters/stats"
 )
 
 func main() {
 	fmt.Println("Welcome to the D&D 5e character manager! What would you like to do?")
-	fmt.Println("g - Generate")
+	fmt.Println("a - Random attributes")
+	fmt.Println("c - Random Class")
 	fmt.Println("x - Exit")
 	for {
 		fmt.Print("Enter an option: ")
@@ -19,12 +21,26 @@ func main() {
 		text, _ := reader.ReadString('\n')
 		text = strings.TrimSpace(text)
 
+		if text == "a" {
+			GetRandomAttributes()
+		}
+
+		if text == "c" {
+			fmt.Println(classes.GetRandomClass())
+		}
+
 		if text == "x" {
 			break
 		}
-
-		if text == "g" {
-			fmt.Println(classes.GetRandomClass())
-		}
 	}
+}
+
+func GetRandomAttributes() {
+	total := 0
+	scores := abilityscore.GenerateAllScores()
+	for key, value := range scores {
+		total += value
+		fmt.Println(key, ": ", value)
+	}
+	fmt.Println("Total: ", total)
 }
