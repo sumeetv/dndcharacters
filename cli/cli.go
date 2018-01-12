@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/sumeetv/dndcharacters/classes"
 )
 
 func main() {
@@ -22,7 +24,7 @@ func main() {
 		}
 
 		if text == "g" {
-			fmt.Println("I'll find something to put here")
+			fmt.Println(classes.GetRandomClass())
 		}
 	}
 }
