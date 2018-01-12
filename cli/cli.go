@@ -36,10 +36,15 @@ func main() {
 }
 
 func GetRandomAttributes() {
+<<<<<<< HEAD
 	total := 0
 	scores := abilityscore.GenerateAllScores()
 	for key, value := range scores {
 		total += value
+=======
+	scores := abilityscore.GenerateAllScores()
+	for key, value := range scores {
+>>>>>>> a00495fd0329a3a44abd00f0c14c44b4f7a5cfa2
 		fmt.Println(key, ": ", value)
 	}
 	fmt.Println("Total: ", total)
