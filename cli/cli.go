@@ -6,14 +6,16 @@ import (
 	"os"
 	"strings"
 
+	"github.com/sumeetv/dndcharacters/characters"
 	"github.com/sumeetv/dndcharacters/classes"
 	"github.com/sumeetv/dndcharacters/stats"
 )
 
 func main() {
 	fmt.Println("Welcome to the D&D 5e character manager! What would you like to do?")
-	fmt.Println("a - Random attributes")
+	fmt.Println("a - Random Attributes")
 	fmt.Println("c - Random Class")
+	fmt.Println("g - Random Character")
 	fmt.Println("x - Exit")
 	for {
 		fmt.Print("Enter an option: ")
@@ -29,6 +31,11 @@ func main() {
 			fmt.Println(classes.GetRandomClass())
 		}
 
+		if text == "g" {
+			char := characters.GenerateRandomCharacter()
+			char.PrintCharacter()
+		}
+
 		if text == "x" {
 			break
 		}
@@ -36,15 +43,10 @@ func main() {
 }
 
 func GetRandomAttributes() {
-<<<<<<< HEAD
 	total := 0
 	scores := abilityscore.GenerateAllScores()
 	for key, value := range scores {
 		total += value
-=======
-	scores := abilityscore.GenerateAllScores()
-	for key, value := range scores {
->>>>>>> a00495fd0329a3a44abd00f0c14c44b4f7a5cfa2
 		fmt.Println(key, ": ", value)
 	}
 	fmt.Println("Total: ", total)
