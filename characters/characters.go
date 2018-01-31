@@ -9,7 +9,7 @@ import (
 
 type Character struct {
 	Name          string
-	AbilityScores map[string]int
+	AbilityScores map[stats.AbilityScore]int
 	Class         string
 }
 
@@ -26,7 +26,7 @@ func (char Character) PrintCharacter() {
 func GenerateRandomCharacter() Character {
 	char := Character{}
 	char.Name = "Ser Roderick"
-	char.AbilityScores = abilityscore.GenerateAllScores()
+	char.AbilityScores = stats.GenerateAllScores()
 	char.Class = classes.GetRandomClass()
 
 	return char

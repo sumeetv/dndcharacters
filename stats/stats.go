@@ -1,8 +1,19 @@
-package abilityscore
+package stats
 
 import (
 	"math/rand"
 	"sort"
+)
+
+type AbilityScore string
+
+const (
+	StrAbility = "STR"
+	DexAbility = "DEX"
+	ConAbility = "CON"
+	IntAbility = "INT"
+	WisAbility = "WIS"
+	ChaAbility = "CHA"
 )
 
 func GenerateAbilityScore() int {
@@ -18,14 +29,14 @@ func GenerateAbilityScore() int {
 	return diceRolls[1] + diceRolls[2] + diceRolls[3]
 }
 
-func GenerateAllScores() map[string]int {
-	scores := map[string]int{
-		"STR": GenerateAbilityScore(),
-		"DEX": GenerateAbilityScore(),
-		"CON": GenerateAbilityScore(),
-		"INT": GenerateAbilityScore(),
-		"WIS": GenerateAbilityScore(),
-		"CHA": GenerateAbilityScore(),
+func GenerateAllScores() map[AbilityScore]int {
+	scores := map[AbilityScore]int{
+		StrAbility: GenerateAbilityScore(),
+		DexAbility: GenerateAbilityScore(),
+		ConAbility: GenerateAbilityScore(),
+		IntAbility: GenerateAbilityScore(),
+		WisAbility: GenerateAbilityScore(),
+		ChaAbility: GenerateAbilityScore(),
 	}
 	return scores
 }
