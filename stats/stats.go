@@ -14,6 +14,7 @@ const (
 	IntAbility = "INT"
 	WisAbility = "WIS"
 	ChaAbility = "CHA"
+	NumScores  = 6
 )
 
 func GenerateAbilityScore() int {
@@ -39,4 +40,18 @@ func GenerateAllScores() map[AbilityScore]int {
 		ChaAbility: GenerateAbilityScore(),
 	}
 	return scores
+}
+
+func GenerateRankedScores(rankedScores []AbilityScore) map[AbilityScore]int {
+	// TODO: Validate length of input or add support for having throwaway stats
+	var scores []int
+	for i := 0; i < NumScores; i++ {
+		scores = append(scores, GenerateAbilityScore())
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(scores)))
+	abilityScores := map[AbilityScore]int{}
+	for index, ability := range rankedScores {
+		abilityScores[ability] = scores[index]
+	}
+	return abilityScores
 }

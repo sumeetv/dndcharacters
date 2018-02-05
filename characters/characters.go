@@ -26,8 +26,8 @@ func (char Character) PrintCharacter() {
 func GenerateRandomCharacter() Character {
 	char := Character{}
 	char.Name = "Ser Roderick"
-	char.AbilityScores = stats.GenerateAllScores()
 	char.Class = classes.GetRandomClass()
+	char.AbilityScores = stats.GenerateRankedScores(classes.GetRankedStatsForClass(char.Class))
 
 	return char
 }
