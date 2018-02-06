@@ -4,3 +4,4 @@
 # Executables and debug builds
 cli/cli
 cli/debug
+cli/cli.exe
