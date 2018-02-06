@@ -1,2 +1,6 @@
 *.swp
 *.swo
+
+# Executables and debug builds
+cli/cli
+cli/debug
