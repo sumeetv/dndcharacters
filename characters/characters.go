@@ -18,9 +18,12 @@ func (char Character) PrintCharacter() {
 	fmt.Println("Class: ", char.Class)
 
 	fmt.Println("Ability Scores:")
-	for score, value := range char.AbilityScores {
-		fmt.Println(score, ": ", value)
-	}
+	fmt.Println(stats.StrAbility, ": ", char.AbilityScores[stats.StrAbility])
+	fmt.Println(stats.DexAbility, ": ", char.AbilityScores[stats.DexAbility])
+	fmt.Println(stats.ConAbility, ": ", char.AbilityScores[stats.ConAbility])
+	fmt.Println(stats.IntAbility, ": ", char.AbilityScores[stats.IntAbility])
+	fmt.Println(stats.WisAbility, ": ", char.AbilityScores[stats.WisAbility])
+	fmt.Println(stats.ChaAbility, ": ", char.AbilityScores[stats.ChaAbility])
 }
 
 func GenerateRandomCharacter() Character {
