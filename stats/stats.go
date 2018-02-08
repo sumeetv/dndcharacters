@@ -17,6 +17,18 @@ const (
 	NumScores  = 6
 )
 
+func GetAbilityScoreList() []AbilityScore {
+  list := []AbilityScore{
+    StrAbility,
+    DexAbility,
+    ConAbility,
+    IntAbility,
+    WisAbility,
+    ChaAbility,
+  }
+  return list
+}
+
 func GenerateAbilityScore() int {
 	diceRolls := []int{
 		rand.Intn(6) + 1,
@@ -54,4 +66,8 @@ func GenerateRankedScores(rankedScores []AbilityScore) map[AbilityScore]int {
 		abilityScores[ability] = scores[index]
 	}
 	return abilityScores
+}
+
+func CalculateSavingThrow(score int) int {
+  return (score - 12) / 2
 }
