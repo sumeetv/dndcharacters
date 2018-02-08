@@ -10,7 +10,7 @@ import (
 type Character struct {
 	Name          string
 	AbilityScores map[stats.AbilityScore]int
-	Class         string
+	Class         classes.PlayableClass
 }
 
 func (char Character) PrintCharacter() {
