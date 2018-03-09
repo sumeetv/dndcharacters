@@ -3,6 +3,8 @@ package classes
 import (
 	"math/rand"
 
+  "github.com/sumeetv/dndcharacters/entities"
+  "github.com/sumeetv/dndcharacters/gateways"
 	"github.com/sumeetv/dndcharacters/stats"
 )
 
@@ -42,6 +44,7 @@ func GetClasses() []PlayableClass {
 }
 
 func GetRandomClass() PlayableClass {
+  sqlgateway.GetClasses()
 	classes := GetClasses()
 	return classes[rand.Intn(len(classes))]
 }
